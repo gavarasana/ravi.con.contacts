@@ -44,6 +44,19 @@ db.AddRange(blogs);
 
 db.SaveChanges();
 
+Console.WriteLine("Adding authors as a collection");
+
+var authors = new List<Author>();
+authors.Add(new Author { FirstName = "Jon", LastName = "Denver" });
+authors.Add(new Author { FirstName = "Lisa", LastName = "May" });
+authors.Add(new Author { FirstName = "Tina", LastName = "Fay" });
+authors.Add(new Author { FirstName = "Elton", LastName = "John" });
+
+db.AddRange(authors);
+db.SaveChanges();
+
+Console.WriteLine("Done adding authors as a collection");
+
 // Delete
 Console.WriteLine("Delete the blog");
 db.Remove(blog);
