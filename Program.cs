@@ -1,7 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ravi.con.contacts;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("Hello, World!");
 
@@ -47,13 +45,32 @@ db.SaveChanges();
 Console.WriteLine("Adding authors as a collection");
 
 var authors = new List<Author>();
-authors.Add(new Author { FirstName = "Jon", LastName = "Denver" });
-authors.Add(new Author { FirstName = "Lisa", LastName = "May" });
-authors.Add(new Author { FirstName = "Tina", LastName = "Fay" });
-authors.Add(new Author { FirstName = "Elton", LastName = "John" });
+//authors.Add(new Author { FirstName = "Jon", LastName = "Denver" });
+//authors.Add(new Author { FirstName = "Lisa", LastName = "May" });
+//authors.Add(new Author { FirstName = "Tina", LastName = "Fay" });
+//authors.Add(new Author { FirstName = "Elton", LastName = "John" });
+
+//db.AddRange(authors);
+//db.SaveChanges();
+
+
+var authorLisa = db.Authors.FirstOrDefault(a => a.FirstName == "Lisa" && a.LastName == "May");
+// Change Lisa's last name
+if (authorLisa != null)
+{
+    authorLisa.LastName = "June";
+}
+
+var authorElton = db.Authors.FirstOrDefault(a => a.FirstName == "Lisa" && a.LastName == "May");
+// Change Elton's first name
+if (authorElton != null)
+{
+    authorElton.FirstName = "Almond";
+}
+authors.Add(new Author { FirstName = "Eric", LastName = "Clapton" });
+authors.Add(new Author { FirstName = "Raj", LastName = "Muthu" });
 
 db.AddRange(authors);
-db.SaveChanges();
 
 Console.WriteLine("Done adding authors as a collection");
 
