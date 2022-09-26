@@ -15,6 +15,8 @@ namespace ravi.con.contacts
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 
+        public DbSet<Author> Authors { get; set; }
+
  
       
         // The following configures EF to create a Sqlite database file in the
@@ -37,6 +39,14 @@ namespace ravi.con.contacts
        
     }
 
+
+    public class Author
+    {
+        public int AuthorId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+    }
     public class Blog
     {
         public int BlogId { get; set; }
